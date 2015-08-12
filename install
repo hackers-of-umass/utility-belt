@@ -14,7 +14,7 @@ folders.each do |folder|
   files.each do |file|
     path = file.sub('.', Dir.pwd)
     name = File.basename file, extn
-    `ln -s #{path} $HOME/.bin/#{name}`
+    `ln -Fs #{path} $HOME/.bin/#{name}`
   end
 end
 
