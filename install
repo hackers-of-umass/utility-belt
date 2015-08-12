@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+# Strip off everything that matches this when linking
+extn = '.*'
+
+# Get all folders in utility-belt
+folders = Dir["./*"].select { |f| File.directory?(f) }
+folders.each do |folder|
+
+  # Get all executable files in each folder
+  files = Dir["#{folder}/*"].select { |f| File.executable?(f) }
+  `mkdir -p $HOME/.bin`
+
+  # Link all the executable files to $HOME/.bin
+  files.each do |file|
+    path = file.sub('.', Dir.pwd)
+    name = File.basename file, extn
+    `ln -s #{path} $HOME/.bin/#{name}`
+  end
+end
+
