@@ -1,0 +1,3 @@
+[submodule "shpotify"]
+	path = shpotify
+	url = https://github.com/leoxlin/shpotify.git

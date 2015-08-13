@@ -16,8 +16,8 @@ export PATH="$PATH:$HOME/.bin"
 ```
 This will makes sure that all the executables stored in .bin folder can be discovered and run on the command line. Then you should run the install script to symlink the right executables
 ```
-$ git clone https://github.com/hackers-of-umass/utility-belt.git
-$ cd /path/to/utility-belt && bundle install
+$ git clone --recursive  https://github.com/hackers-of-umass/utility-belt.git
+$ cd utility-belt && bundle install
 $ ./install
 ```
 
