@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+require 'json'
+
+puts "stock-price <ticker symbol>" if ARGV.length < 1
+
+ARGV.each do |arg|
+  query = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo"\
+          ".finance.quotes%20where%20symbol%20in%20(%22#{arg}%22)%0A%09%09&f"\
+          "ormat=json&diagnostics=true&env=http%3A%2F%2Fdatatables.org%2Falltabl"\
+          "es.env"
+  result = `curl -sSg "#{query}"`
+  quote = JSON.parse(result)["query"]["results"]["quote"]
+  if quote["Ask"].nil?
+    puts "#{arg} is not a valid ticker symbol"
+    next
+  end
+  puts "Ticker Symbol:\t #{arg}"
+  puts "P/E Ratio:\t #{quote["PERatio"]}"
+  puts "Trade Price:\t #{quote["LastTradePriceOnly"]}"
+  puts "Avg Daily Vol:\t #{quote["AverageDailyVolume"]}"
+  puts "Ask Price:\t #{quote["Ask"]}"
+  puts "Bid Price:\t #{quote["Bid"]}"
+  puts "Percent Change:\t #{quote["ChangeinPercent"]}"
+  puts "Year Range:\t #{quote["YearRange"]}"
+  puts "\n"
+end
