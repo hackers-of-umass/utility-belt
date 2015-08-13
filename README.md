@@ -21,6 +21,9 @@ $ cd /path/to/utility-belt && bundle install
 $ ./install
 ```
 
+# Purpose
+Why not just use gems or pip or brew to manage your cmd line tools you ask? The purpose to utility belt is to provide a set of "micro" tools for your own personal usage outside of more heavy weight tools.
+
 # Contributing
 To add a new tool to Utility Belt, simply create an executable in a folder that best represents the function of the tool. Each tool must be self contained with enough helpful hints on how to use them. Tools written in Ruby and Shell are preferred.
 
