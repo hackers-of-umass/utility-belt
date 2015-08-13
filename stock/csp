@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
+# Finds the current stock price and other info
 require 'json'
 
-puts "stock-price <ticker symbol>" if ARGV.length < 1
+puts "csp <ticker symbol>" if ARGV.length < 1
 
 ARGV.each do |arg|
   query = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo"\
