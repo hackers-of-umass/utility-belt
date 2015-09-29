@@ -1,0 +1,13 @@
+#!/bin/sh
+if [ $# -lt 2 ]; then
+    echo "[E]ncrypt/[D]ecrypt [Src] [Dest *encrypt*]"
+else
+  if [ "$1" == "E" ]; then
+    tar -cj $2 | openssl des3 -salt > $3
+  elif [ "$1" == "D" ]; then
+    cat $2 | openssl des3 -d -salt | tar -xvj
+  else
+    echo "Valid modes: E/D"
+  fi
+fi
+
