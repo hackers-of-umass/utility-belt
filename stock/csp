@@ -23,5 +23,4 @@ ARGV.each do |arg|
   puts "Bid Price:\t #{quote["Bid"]}"
   puts "Percent Change:\t #{quote["ChangeinPercent"]}"
   puts "Year Range:\t #{quote["YearRange"]}"
-  puts "\n"
 end
